@@ -18,6 +18,15 @@ class HolderDTO {
     @NotBlank
     String email
 
+    HolderDTO() {}
+
+    HolderDTO(Holder holder) {
+        this.name = holder.name
+        this.cpfCnpj = holder.cpfCnpj
+        this.birthDate = holder.birthDate
+        this.email = holder.email
+    }
+
     Holder toEntity() {
         return new Holder(
             name: this.name,

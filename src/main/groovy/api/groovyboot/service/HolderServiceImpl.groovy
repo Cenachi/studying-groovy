@@ -15,19 +15,21 @@ class HolderServiceImpl implements HolderService{
     }
 
     @Override
-    List<Holder> getHolderList() {
-        return holderRepository.findAll()
+    List<HolderDTO> getHolderList() {
+        return holderRepository.findAll().collect { new HolderDTO(it) }
     }
 
     @Override
-    Holder getHolder(Long id) {
+    HolderDTO getHolder(Long id) {
         return holderRepository.findById(id).orEslseThrow {
             new RuntimeException("Holder not found with ID $id")}
     }
 
     @Override
-    Holder save(HolderDTO holderDto) {
-        return holderRepository.save(holderDto.toEntity())
+    HolderDTO save(HolderDTO holderDto) {
+        return holderRepository.save(holderDto.toEntity()).with {
+            new HolderDTO(it)
+        }
     }
 
 }

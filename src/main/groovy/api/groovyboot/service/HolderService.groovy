@@ -1,14 +1,12 @@
 package api.groovyboot.service
 
 import api.groovyboot.dto.HolderDTO
-import api.groovyboot.entities.Holder
 
 interface HolderService {
 
-    public List<Holder> getHolderList()
+    List<HolderDTO> getHolderList()
 
-    public Holder getHolder(Long id)
+    HolderDTO getHolder(Long id)
 
-    public Holder save(HolderDTO holderDto)
-
+    HolderDTO save(HolderDTO holderDto)
 }

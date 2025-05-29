@@ -1,22 +1,20 @@
 package api.groovyboot.entities
 
-
+import jakarta.persistence.Column
 import jakarta.persistence.Entity
-import jakarta.validation.constraints.NotNull
 
 @Entity
 class Holder extends BaseEntity {
 
-    @NotNull
+    @Column(nullable = false)
     String name
 
-    @NotNull
+    @Column(nullable = false, unique = true)
     String cpfCnpj
 
-    @NotNull
+    @Column(nullable = false)
     Date birthDate
 
-    @NotNull
+    @Column(nullable = false)
     String email
-
 }
